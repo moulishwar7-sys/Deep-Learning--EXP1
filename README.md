@@ -35,37 +35,106 @@ Plot the original dataset along with the learned linear model.
 Use the trained model to predict for a new input value .
 
 **PROGRAM**
+from google.colab import auth
+import gspread
+from google.auth import default
+import pandas as pd
 
-**Name**:
+auth.authenticate_user()
+creds, _ = default()
+gc = gspread.authorize(creds)
+worksheet = gc.open('DL').sheet1
 
-**Register Number:**
+rows = worksheet.get_all_values()
+df = pd.DataFrame(rows[1:], columns=rows[0])
+df=df.astype({'INPUT':'float'})
+df=df.astype({'OUTPUT':'float'})
+df.head()
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+X = df[['INPUT']].values
+y = df[['OUTPUT']].values
+X
+
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.33,random_state = 33)
+Scaler = MinMaxScaler()
+Scaler.fit(X_train)
+X_train1 = Scaler.transform(X_train)
+
+model=Sequential([
+    #Hidden ReLU Layers
+    Dense(units=5,activation='relu',input_shape=[1]),
+    Dense(units=3,activation='relu'),
+    #Linear Output Layer
+    Dense(units=1)
+])
+
+model.compile(optimizer='rmsprop',loss='mse')
+model.fit(X_train1,y_train,epochs=3000)
+
+loss= pd.DataFrame(model.history.history)
+loss.plot()
+
+X_test1 =Scaler.transform(X_test)
+model.evaluate(X_test1,y_test)
+
+X_n1=[[4]]
+X_n1_1=Scaler.transform(X_n1)
+model.predict(X_n1_1)
 
 
-class Model(nn.Module):
+**Name: Moulishwar G**
 
-    def __init__(self, in_features, out_features):
-       
-        super().__init__()
-        
-        #Include your code here
-
-
-
+**Register Number: 2305001020**
 
 # Initialize the Model, Loss Function, and Optimizer
 
 
-Dataset Information
-Include screenshot of the generated data
+Dataset Information:
+
+
+
+<img width="313" height="677" alt="image" src="https://github.com/user-attachments/assets/d5f779d4-951d-436f-8e53-b24b4a7396f6" />
+
 
 
 **OUTPUT**
 
-Training Loss Vs Iteration Plot Best Fit line plot Include your plot here
+Training Loss Vs Iteration Plot:
 
-**New Sample Data Prediction**
 
-Include your sample input and output here
+
+<img width="813" height="583" alt="Screenshot 2025-09-21 123129" src="https://github.com/user-attachments/assets/1be35d83-abe7-42e8-af41-256652115df2" />
+
+
+
+
+
+Epoch Training:
+
+
+<img width="656" height="75" alt="image" src="https://github.com/user-attachments/assets/b83fa3b4-ecc6-4394-817b-ef368d81bcb5" />
+
+
+Test Data Root Mean Squared Error:
+
+
+<img width="801" height="53" alt="Screenshot 2025-09-21 123203" src="https://github.com/user-attachments/assets/639ff9b4-5e44-4c9c-9301-ece7c89639e7" />
+
+
+New Sample Data Prediction:
+
+
+
+<img width="656" height="75" alt="Screenshot 2025-09-21 123208" src="https://github.com/user-attachments/assets/147ab710-b3fa-4794-8bcf-e1a9f6e19b5d" />
+
+
+
+
 
 **RESULT**
 
