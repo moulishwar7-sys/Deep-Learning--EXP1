@@ -37,6 +37,7 @@ Plot the original dataset along with the learned linear model.
 Use the trained model to predict for a new input value .
 
 **PROGRAM**
+```
 from google.colab import auth
 import gspread
 from google.auth import default
@@ -88,7 +89,7 @@ X_n1=[[4]]
 X_n1_1=Scaler.transform(X_n1)
 model.predict(X_n1_1)
 
-
+```
 **Name: Moulishwar G**
 
 **Register Number: 2305001020**
