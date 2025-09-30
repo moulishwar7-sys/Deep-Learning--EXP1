@@ -97,11 +97,10 @@ model.predict(X_n1_1)
 # Initialize the Model, Loss Function, and Optimizer
 
 
-Dataset Information:
+**Dataset Information:**
 
+<img width="376" height="499" alt="Screenshot 2025-09-30 091912" src="https://github.com/user-attachments/assets/2b3458ac-6f7d-4767-a7f0-a68c48711d21" />
 
-
-<img width="313" height="677" alt="image" src="https://github.com/user-attachments/assets/d5f779d4-951d-436f-8e53-b24b4a7396f6" />
 
 
 
@@ -119,21 +118,22 @@ Training Loss Vs Iteration Plot:
 
 Epoch Training:
 
+<img width="674" height="325" alt="Screenshot 2025-09-30 091920" src="https://github.com/user-attachments/assets/2e7d5909-e98e-49ac-9ff3-557e9bcfd2ba" />
 
-<img width="656" height="75" alt="image" src="https://github.com/user-attachments/assets/b83fa3b4-ecc6-4394-817b-ef368d81bcb5" />
 
 
 Test Data Root Mean Squared Error:
 
 
-<img width="801" height="53" alt="Screenshot 2025-09-21 123203" src="https://github.com/user-attachments/assets/639ff9b4-5e44-4c9c-9301-ece7c89639e7" />
+<img width="718" height="70" alt="Screenshot 2025-09-30 091928" src="https://github.com/user-attachments/assets/737569dd-5789-40a6-9a05-39716d9f6a72" />
+
 
 
 New Sample Data Prediction:
 
+<img width="455" height="54" alt="Screenshot 2025-09-30 091935" src="https://github.com/user-attachments/assets/49eb7367-f500-4586-a912-b7798afcaebe" />
 
 
-<img width="656" height="75" alt="Screenshot 2025-09-21 123208" src="https://github.com/user-attachments/assets/147ab710-b3fa-4794-8bcf-e1a9f6e19b5d" />
 
 
 
